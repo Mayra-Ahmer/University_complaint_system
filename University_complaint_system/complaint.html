@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Complaint</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Submit Your Complaint</h2>
+        <form action="submit_complaint.php" method="POST">
+            <!-- Gets user ID from URL -->
+            <input type="hidden" name="user_id" id="user_id">
+
+            <input type="text" name="title" placeholder="Complaint Title" required>
+            <textarea name="description" placeholder="Complaint Details" rows="5" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Fill user_id from URL param
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("user_id").value = params.get("user_id");
+    </script>
+</body>
+</html>
